@@ -11,42 +11,31 @@
 
 #ifndef __INC_SPIRGB_H
 #define __INC_SPIRGB_H
-#if defined(ARDUINO) && ARDUINO >= 100
-  #include "Arduino.h"
-#else
-  #include "WProgram.h"
-  #include <pins_arduino.h>
-#endif
+
+#include "Arduino.h"
 
 #include "avr/pgmspace.h"
 
-class CFastSPI_LED { 
-	public:  
-		int m_nLeds;
-		unsigned char *m_pData;
-		unsigned char *m_pDataEnd;
-
-		uint8_t **m_pPorts;
-		unsigned int m_nDDR;
-		unsigned pinLed;
+class Ucs1903 { 
 	public:
+		// nPin : Pin de connection
+		// nLeds : Nombre de led
+		Ucs1903(int nPin, int nLeds);
 		
-		// initialize the engine - note this will also be re-called if one of the auto-calibration values
-		// (e.g. percentage, refresh rate, brightness levels) is changed
-		void init(int nPin, int nLeds);
-		
-		// call this method whenever you want to output a block of rgb data.  It is assumed that 
-		// rgbData is nNumLeds * 3 bytes long.
+		// Charger un nouveau tableau de valeur pour les leds.
 		void setRGBData(unsigned char *rgbData);
 		
-		// call this method to get a pointer to the raw rgb data
-		unsigned char *getRGBData() { return m_pData; }
-		
-		// 'show' or push the current led data (note, with some chipsets, data shows up in the
-		// leds as soon as it is written to the array returned by getRGBData.
+		// Envoi d'une trame avec le nouveau code de couleur de chaque led.
 		void show();
-
+		
+		// retourne un tableau avec toutes les valeurs des leds.
+		unsigned char *getRGBData() { return m_pData; }
+	
+	private:
+		int m_nLeds;
+		unsigned char *m_pData;
+		unsigned char pin;
+		uint8_t **m_pPorts;
 };
 
-extern CFastSPI_LED FastSPI_LED;
 #endif
