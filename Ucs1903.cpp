@@ -82,3 +82,17 @@ void Ucs1903::setRGBData(unsigned char *rgbData)
 {
 	memcpy(m_pData,rgbData,m_nLeds);
 }
+
+void Ucs1903::setOff()
+{
+	memset(m_pData,0,m_nLeds);
+}
+
+void Ucs1903::setLed(int pos, unsigned char r, unsigned char g, unsigned char b)
+{
+	m_pData[(pos*3)+0] = r;
+	m_pData[(pos*3)+1] = g;
+	m_pData[(pos*3)+2] = b;
+}
+
+

@@ -28,8 +28,14 @@ class Ucs1903 {
 		// Envoi d'une trame avec le nouveau code de couleur de chaque led.
 		void show();
 		
-		// retourne un tableau avec toutes les valeurs des leds.
+		// Retourne un tableau avec toutes les valeurs des leds.
 		unsigned char *getRGBData() { return m_pData; }
+		
+		// Reset de toutes les valeurs des leds (attention pour eteindre les led utiliser ensuite la fonction show)
+		void setOff();
+		
+		// Permet de fixer la valeur d'une led.
+		void setLed(int pos, unsigned char r, unsigned char g, unsigned char b);
 	
 	private:
 		int m_nLeds;
