@@ -8,7 +8,7 @@ Le but de cette librairie est de commander des leds HTD-12IC via une carte ardui
 
 ##Import de la librairie dans son projet arduino.
 ``` bash
-# ajout d'un sous module dans du projet
+# ajout d'un sous module dans le projet
 git submodule add git@github.com:Pobot/Ucs1903.git projetArduino/libraries/Usc1903
 
 # mise a jour du sous module
@@ -16,14 +16,14 @@ git submodule update
 ```
 
 ## Utilisation
-Il est possible d'utiliser les leds sur n'importe qu'elle pin de donnée de l'arduino.
-Le nombre max de led en serie est de 1000. Attention à l'alimentation des leds prévoir 3x18mA par led.
-Pour le fonctionnement le plus simple est de regarder le fichier : demo/demo.ino
+Il est possible d'utiliser les leds sur n'importe quelle broche numérique de l'arduino.
+Le nombre max de led en série est de 1000. Attention à l'alimentation des leds prévoir 3x18mA par led.
+Pour le fonctionnement, le plus simple est de regarder le fichier : demo/demo.ino
 
-## Connection des leds
-fil rouge : +5v
-fil vert : data (attention d'utiliser l'entrée DI)
-fil blanc : Gnd
+## Connexion des leds
+*  fil rouge : +5v
+*  fil vert : data (attention d'utiliser l'entrée DI)
+*  fil blanc : Gnd
 
 
 ## Licence

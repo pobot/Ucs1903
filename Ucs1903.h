@@ -1,10 +1,10 @@
 /**
-  Ucs1903.h - Librarie pour gestion de led HTD-12IC.
+	Ucs1903.h - Librarie pour gestion de led HTD-12IC.
 
-  @author :     Grégory Fromain, < gregoryfromain@gmail.com >
-  @since : 	    21/12/2012
-  @license :    http://creativecommons.org/licenses/by-nc/3.0/
-  @link :       https://github.com/greg06/Ucs1903
+	@author :     Grégory Fromain, < gregoryfromain@gmail.com >
+	@since :      21/12/2012
+	@license :    http://creativecommons.org/licenses/by-nc/3.0/
+	@link :       https://github.com/greg06/Ucs1903
 */
 
 // Original source : https://github.com/PartYTech/fastspi
@@ -25,11 +25,11 @@ class Ucs1903 {
 		// Charger un nouveau tableau de valeur pour les leds.
 		void setRGBData(unsigned char *rgbData);
 		
-		// Envoi d'une trame avec le nouveau code de couleur de chaque led.
-		void show();
-		
 		// Retourne un tableau avec toutes les valeurs des leds.
 		unsigned char *getRGBData() { return m_pData; }
+		
+		// Envoi d'une trame avec le nouveau code de couleur de chaque led.
+		void show();
 		
 		// Reset de toutes les valeurs des leds (attention pour eteindre les led utiliser ensuite la fonction show)
 		void setOff();

@@ -10,8 +10,8 @@ void setup()
 
 }
 
-void loop() { 
-  for(int j = 0; j < 4; j++) { 
+void loop() {
+  for(int j = 0; j < 4; j++) {
     for(int i = 0 ; i < NUM_LEDS; i++ ) {
       girlande.setOff();
       switch(j) { 
